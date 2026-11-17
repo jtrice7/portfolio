@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Rice | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        /* Custom scrollbar for hero section */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #e5e7eb;
+            border-radius: 20px;
+        }
+        /* Hide scrollbar for tabs */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 selection:bg-red-200 selection:text-red-900">
+    
+    <!-- Navigation Tabs Bar (Moved to absolute top) -->
+    <div class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200 shadow-sm px-4 md:px-10 py-4 overflow-x-auto no-scrollbar w-full flex md:justify-center">
+        <nav class="flex space-x-2 md:space-x-4 min-w-max" id="tabs-nav">
+            <button data-tab="about" class="tab-btn active bg-gray-900 text-white shadow-md transform scale-[1.02] flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-200">
+                <i data-lucide="user" class="w-4 h-4 text-red-400 icon-active"></i>
+                About & Education
+            </button>
+            <button data-tab="experience" class="tab-btn text-gray-600 hover:bg-gray-100 hover:text-gray-900 bg-white border border-transparent flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-200">
+                <i data-lucide="briefcase" class="w-4 h-4 text-gray-400 icon-inactive"></i>
+                Experience
+            </button>
+            <button data-tab="projects" class="tab-btn text-gray-600 hover:bg-gray-100 hover:text-gray-900 bg-white border border-transparent flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-200">
+                <i data-lucide="code" class="w-4 h-4 text-gray-400 icon-inactive"></i>
+                Projects
+            </button>
+            <button data-tab="skills" class="tab-btn text-gray-600 hover:bg-gray-100 hover:text-gray-900 bg-white border border-transparent flex items-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-200">
+                <i data-lucide="wrench" class="w-4 h-4 text-gray-400 icon-inactive"></i>
+                Skills
+            </button>
+        </nav>
+    </div>
+
+    <div class="flex flex-col lg:flex-row w-full min-h-screen">
+        
+        <!-- Left Pane - Fixed Hero Section -->
+        <aside class="w-full lg:w-[400px] xl:w-[450px] bg-white p-8 lg:p-10 lg:h-[calc(100vh-80px)] lg:sticky lg:top-[80px] flex flex-col border-b lg:border-b-0 lg:border-r border-gray-200 shadow-sm z-10">
+            
+            <!-- Profile Info Header -->
+            <div class="flex flex-col items-center lg:items-start mb-6">
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-red-600 mb-6 shadow-lg">
+                    <img 
+                        src="https://placehold.co/400x400/cc0000/ffffff?text=JR" 
+                        alt="Jonathan Rice" 
+                        class="w-full h-full object-cover"
+                    />
+                </div>
+
+                <h1 class="text-4xl font-bold text-gray-900 tracking-tight mb-2 text-center lg:text-left w-full">
+                    Jonathan Rice
+                </h1>
+                <h2 class="text-xl font-medium text-red-700 mb-4 text-center lg:text-left w-full">
+                    Computer Science Student | AI Concentration
+                </h2>
+                
+                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 w-full mb-6">
+                    <p class="text-gray-800 font-semibold flex items-center justify-center lg:justify-start gap-2 mb-1">
+                        <i data-lucide="graduation-cap" class="w-5 h-5 text-red-600"></i>
+                        North Carolina State University
+                    </p>
+                    <p class="text-gray-500 text-sm text-center lg:text-left lg:ml-7">Class of 2028</p>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 mb-8 w-full">
+                <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Contact Info</h3>
+                <div class="space-y-4">
+                    <a href="mailto:jonathan.rice.0307@gmail.com" class="flex items-center gap-3 text-gray-700 hover:text-red-700 transition-colors group">
+                        <div class="p-2 bg-white rounded-lg shadow-sm group-hover:bg-red-50 transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4 text-gray-500 group-hover:text-red-600"></i>
+                        </div>
+                        <span class="text-sm break-all font-medium">jonathan.rice.0307@gmail.com</span>
+                    </a>
+                    <div class="flex items-center gap-3 text-gray-700 group">
+                        <div class="p-2 bg-white rounded-lg shadow-sm">
+                            <i data-lucide="phone" class="w-4 h-4 text-gray-500"></i>
+                        </div>
+                        <span class="text-sm font-medium">(336) 830-2778</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-gray-700 group">
+                        <div class="p-2 bg-white rounded-lg shadow-sm">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gray-500"></i>
+                        </div>
+                        <span class="text-sm font-medium">Lewisville, NC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links Container -->
+            <div class="pt-6 border-t border-gray-100 w-full mt-auto">
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <a href="https://linkedin.com/in/jonathan-rice7/" target="_blank" rel="noreferrer" class="p-3 bg-gray-50 text-gray-600 rounded-xl hover:bg-red-600 hover:text-white transition-all shadow-sm border border-gray-100 flex-1 flex justify-center items-center gap-2 font-medium">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        <span class="text-sm">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/jtrice7" target="_blank" rel="noreferrer" class="p-3 bg-gray-50 text-gray-600 rounded-xl hover:bg-red-600 hover:text-white transition-all shadow-sm border border-gray-100 flex-1 flex justify-center items-center gap-2 font-medium">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                        <span class="text-sm">GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Pane - Main Content -->
+        <main class="flex-1 flex flex-col bg-[#fafafa] min-w-0">
+            
+            <!-- Dynamic Content Area -->
+            <div class="flex-1 p-6 md:p-10 lg:p-12 pb-24">
+                
+                <!-- About Tab -->
+                <div id="about" class="tab-content animate-fade-in max-w-4xl space-y-10">
+                    
+                    <!-- Featured Project Showcase (Moved to Main Area) -->
+                    <section>
+                        <div class="bg-gradient-to-br from-red-600 to-red-800 rounded-3xl p-8 md:p-10 text-white shadow-xl relative overflow-hidden group">
+                            <!-- Decorative background elements -->
+                            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-white opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-32 h-32 bg-red-400 opacity-20 rounded-full blur-2xl"></div>
+                            
+                            <div class="relative z-10 flex flex-col md:flex-row gap-8 items-center md:items-start">
+                                <div class="flex-1">
+                                    <h3 class="text-sm font-bold text-red-200 uppercase tracking-wider mb-2 flex items-center gap-2">
+                                        <i data-lucide="star" class="w-4 h-4"></i> Featured Mobile App
+                                    </h3>
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <h4 class="text-3xl md:text-4xl font-bold tracking-tight">Selah</h4>
+                                    </div>
+                                    
+                                    <p class="text-red-50 text-lg mb-6 leading-relaxed font-medium max-w-xl">
+                                        A cross-platform mobile application fostering thriving faith-based communities through feature-rich daily reflection and sharing tools.
+                                    </p>
+                                    
+                                    <div class="space-y-4 mb-8">
+                                        <div class="flex items-start gap-3 text-red-50">
+                                            <div class="p-2 bg-white/10 rounded-lg backdrop-blur-sm shrink-0">
+                                                <i data-lucide="server" class="w-5 h-5 text-red-100"></i>
+                                            </div>
+                                            <span class="mt-1 text-sm md:text-base">Serverless Firebase backend with real-time data management.</span>
+                                        </div>
+                                        <div class="flex items-start gap-3 text-red-50">
+                                            <div class="p-2 bg-white/10 rounded-lg backdrop-blur-sm shrink-0">
+                                                <i data-lucide="shield" class="w-5 h-5 text-red-100"></i>
+                                            </div>
+                                            <span class="mt-1 text-sm md:text-base">End-to-end encryption using per-record keys & strict access policies.</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-4 py-2 bg-white/10 border border-white/20 hover:bg-white/20 transition-colors text-white text-sm font-semibold rounded-xl backdrop-blur-sm shadow-sm">React Native</span>
+                                        <span class="px-4 py-2 bg-white/10 border border-white/20 hover:bg-white/20 transition-colors text-white text-sm font-semibold rounded-xl backdrop-blur-sm shadow-sm">Expo</span>
+                                        <span class="px-4 py-2 bg-white/10 border border-white/20 hover:bg-white/20 transition-colors text-white text-sm font-semibold rounded-xl backdrop-blur-sm shadow-sm">Firebase</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Abstract Phone Mockup Graphic -->
+                                <div class="hidden lg:flex shrink-0 w-40 h-[280px] bg-white/5 border-[6px] border-white/20 rounded-[2.5rem] shadow-2xl relative overflow-hidden items-center justify-center backdrop-blur-md">
+                                    <div class="absolute top-0 w-1/3 h-4 bg-white/20 rounded-b-xl"></div>
+                                    <i data-lucide="smartphone" class="w-16 h-16 text-white/30"></i>
+                                    <div class="absolute bottom-4 w-12 h-1 bg-white/20 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3 border-b border-gray-100 pb-3">
+                            <span class="p-2 bg-red-50 rounded-lg text-red-600"><i data-lucide="graduation-cap" class="w-6 h-6"></i></span>
+                            Education
+                        </h3>
+                        <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                            <div class="flex flex-col md:flex-row justify-between md:items-start mb-6 gap-4">
+                                <div>
+                                    <h4 class="text-2xl font-bold text-gray-900 mb-1">B.S. in Computer Science</h4>
+                                    <p class="text-lg text-red-700 font-semibold mb-2">Concentration: Artificial Intelligence</p>
+                                    <p class="text-gray-600 font-medium flex items-center gap-2">
+                                        <i data-lucide="map-pin" class="w-4 h-4"></i> North Carolina State University, Raleigh, NC
+                                    </p>
+                                </div>
+                                <div class="text-left md:text-right shrink-0">
+                                    <div class="inline-block px-4 py-2 bg-gray-900 text-white rounded-xl text-sm font-bold mb-2 shadow-sm">
+                                        GPA: 3.75/4.00
+                                    </div>
+                                    <p class="text-gray-500 text-sm font-medium flex items-center md:justify-end gap-1.5">
+                                        <i data-lucide="calendar" class="w-4 h-4"></i> August 2024 - May 2028
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                                <div>
+                                    <h5 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <i data-lucide="shield" class="w-5 h-5 text-red-500"></i> Honors & Involvement
+                                    </h5>
+                                    <ul class="space-y-3">
+                                        <li class="flex items-start gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
+                                            <span class="font-medium text-sm">Dean's List (All Semesters)</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
+                                            <span class="font-medium text-sm">Association for Computing Machinery</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
+                                            <span class="font-medium text-sm">CSC Mentorship Program</span>
+                                        </li>
+                                        <li class="flex items-start gap-3 text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                            <i data-lucide="chevron-right" class="w-4 h-4 text-red-600 shrink-0 mt-0.5"></i>
+                                            <span class="font-medium text-sm">Engineering Living & Learning Village</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                        <i data-lucide="code" class="w-5 h-5 text-red-500"></i> Relevant Coursework
+                                    </h5>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Concepts & Facilities of OS</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Intro to AI</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Data Structures & Algorithms</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">C and Software Tools</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Automata/Grammars/Computability</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Software Development</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Intro to Probability</span>
+                                        <span class="px-3 py-1.5 bg-white text-gray-700 text-sm font-medium rounded-lg border border-gray-200 shadow-sm">Discrete Math & Linear Algebra</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Experience Tab -->
+                <div id="experience" class="tab-content hidden animate-fade-in max-w-4xl space-y-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3 border-b border-gray-100 pb-3">
+                        <span class="p-2 bg-red-50 rounded-lg text-red-600"><i data-lucide="briefcase" class="w-6 h-6"></i></span>
+                        Professional & Leadership Experience
+                    </h3>
+                    
+                    <div class="relative border-l-2 border-red-200 ml-4 md:ml-6 space-y-12">
+                        <!-- Experience 1 -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-5 h-5 bg-red-600 rounded-full -left-[11px] top-1.5 ring-4 ring-gray-50 shadow-sm"></div>
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                                <div class="flex flex-col xl:flex-row justify-between mb-5 gap-3">
+                                    <div>
+                                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-1">Coding/Math Tutor</h4>
+                                        <p class="text-lg text-gray-600 font-semibold">Wyzant</p>
+                                    </div>
+                                    <div class="text-left xl:text-right shrink-0">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-700 rounded-lg text-sm font-bold mb-2">
+                                            <i data-lucide="calendar" class="w-4 h-4"></i> May 2026 - Present
+                                        </span>
+                                        <p class="text-gray-500 text-sm font-medium flex items-center xl:justify-end gap-1.5">
+                                            <i data-lucide="map-pin" class="w-4 h-4"></i> Lewisville, NC
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Guide students through advanced math and programming concepts from coding syntax to complex algorithms, ensuring proper understanding and enabling practical application.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Adapt instruction to individual learning styles by tailoring lesson plans and simplifying difficult topics.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Experience 2 -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-5 h-5 bg-red-600 rounded-full -left-[11px] top-1.5 ring-4 ring-gray-50 shadow-sm"></div>
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                                <div class="flex flex-col xl:flex-row justify-between mb-5 gap-3">
+                                    <div>
+                                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-1">1st Trombone</h4>
+                                        <p class="text-lg text-gray-600 font-semibold">NC State Marching Band - Power Sound of the South</p>
+                                    </div>
+                                    <div class="text-left xl:text-right shrink-0">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-700 rounded-lg text-sm font-bold mb-2">
+                                            <i data-lucide="calendar" class="w-4 h-4"></i> August 2024 - Present
+                                        </span>
+                                        <p class="text-gray-500 text-sm font-medium flex items-center xl:justify-end gap-1.5">
+                                            <i data-lucide="map-pin" class="w-4 h-4"></i> Raleigh, NC
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Collaborate with 400+ students to execute intricate performances for 50,000+ fans weekly.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Balance 20+ hours of rehearsals/performances weekly, demonstrating strong time management.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Experience 3 -->
+                        <div class="relative pl-8 md:pl-12">
+                            <div class="absolute w-5 h-5 bg-red-600 rounded-full -left-[11px] top-1.5 ring-4 ring-gray-50 shadow-sm"></div>
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all group">
+                                <div class="flex flex-col xl:flex-row justify-between mb-5 gap-3">
+                                    <div>
+                                        <h4 class="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-red-700 transition-colors mb-1">Student Leader/Organizer</h4>
+                                        <p class="text-lg text-gray-600 font-semibold">Summit College</p>
+                                    </div>
+                                    <div class="text-left xl:text-right shrink-0">
+                                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-700 rounded-lg text-sm font-bold mb-2">
+                                            <i data-lucide="calendar" class="w-4 h-4"></i> August 2024 - Present
+                                        </span>
+                                        <p class="text-gray-500 text-sm font-medium flex items-center xl:justify-end gap-1.5">
+                                            <i data-lucide="map-pin" class="w-4 h-4"></i> Raleigh, NC
+                                        </p>
+                                    </div>
+                                </div>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Organize weekly gatherings of 30+ students committed to making deep connections, encouraging, and growing relationships with one another.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Lead small group of students in faith development and personal growth.</span>
+                                    </li>
+                                    <li class="flex items-start gap-3 text-gray-700">
+                                        <div class="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2.5 shrink-0"></div>
+                                        <span class="leading-relaxed">Served with hundreds of students during summer 2025 to support local church and community.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Tab -->
+                <div id="projects" class="tab-content hidden animate-fade-in max-w-5xl space-y-12">
+                    <section>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3 border-b border-gray-100 pb-3">
+                            <span class="p-2 bg-red-50 rounded-lg text-red-600"><i data-lucide="code" class="w-6 h-6"></i></span>
+                            Technical Projects
+                        </h3>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            
+                            <!-- Project 1 -->
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full group">
+                                <div class="mb-4">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Selah - Mobile Application</h4>
+                                    <p class="text-sm font-medium text-gray-500 flex items-center gap-1.5">
+                                        <i data-lucide="calendar" class="w-4 h-4"></i> November 2025 - Present
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">React Native</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">Expo</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">Firebase</span>
+                                </div>
+                                <ul class="space-y-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <li class="text-gray-700 text-sm leading-relaxed flex items-start gap-2.5">
+                                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
+                                        <span>Developed a cross-platform mobile app using React Native and Expo frameworks to foster thriving faith-based community.</span>
+                                    </li>
+                                    <li class="text-gray-700 text-sm leading-relaxed flex items-start gap-2.5">
+                                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
+                                        <span>Integrated a serverless backend with Firebase cloud services, configuring secure user authentication and end-to-end encryption.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Project 2 -->
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full group">
+                                <div class="mb-4">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Conference Management Program</h4>
+                                    <p class="text-sm font-medium text-gray-500 flex items-center gap-1.5">
+                                        <i data-lucide="calendar" class="w-4 h-4"></i> October - November 2025
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">Java</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">Data Structures</span>
+                                </div>
+                                <ul class="space-y-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <li class="text-gray-700 text-sm leading-relaxed flex items-start gap-2.5">
+                                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
+                                        <span>Designed and implemented Java application modeling conferences, sessions, and items using custom list structures.</span>
+                                    </li>
+                                    <li class="text-gray-700 text-sm leading-relaxed flex items-start gap-2.5">
+                                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
+                                        <span>Evaluated trade-offs of varying data structures, optimizing custom linked node and ArrayList implementations.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Project 3 -->
+                            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full group">
+                                <div class="mb-4">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-red-700 transition-colors">Applied Engineering Design</h4>
+                                    <p class="text-sm font-medium text-gray-500 flex items-center gap-1.5">
+                                        <i data-lucide="calendar" class="w-4 h-4"></i> January - May 2025
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">3D-Printing</span>
+                                    <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-bold rounded-lg border border-gray-200">Prototyping</span>
+                                </div>
+                                <ul class="space-y-3 mt-auto bg-gray-50 p-4 rounded-xl border border-gray-100">
+                                    <li class="text-gray-700 text-sm leading-relaxed flex items-start gap-2.5">
+                                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
+                                        <span>Planned and created a 3d-printed fish-friendly bridge to aid in fish travel.</span>
+                                    </li>
+                                    <li class="text-gray-700 text-sm leading-relaxed flex items-start gap-2.5">
+                                        <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
+                                        <span>Collaborated and prototyped our solution through weekly meetings and multiple tests.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Skills Tab -->
+                <div id="skills" class="tab-content hidden animate-fade-in max-w-4xl space-y-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3 border-b border-gray-100 pb-3">
+                        <span class="p-2 bg-red-50 rounded-lg text-red-600"><i data-lucide="wrench" class="w-6 h-6"></i></span>
+                        Technical & Professional Skills
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Programming -->
+                        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                            <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                <i data-lucide="code" class="w-5 h-5 text-red-600"></i> Programming Languages
+                            </h4>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-4 py-2 bg-gray-900 text-white rounded-xl font-semibold text-sm shadow-sm hover:bg-red-600 transition-colors">Java</span>
+                                <span class="px-4 py-2 bg-gray-900 text-white rounded-xl font-semibold text-sm shadow-sm hover:bg-red-600 transition-colors">C</span>
+                                <span class="px-4 py-2 bg-gray-900 text-white rounded-xl font-semibold text-sm shadow-sm hover:bg-red-600 transition-colors">Python</span>
+                                <span class="px-4 py-2 bg-gray-900 text-white rounded-xl font-semibold text-sm shadow-sm hover:bg-red-600 transition-colors">JavaScript</span>
+                                <span class="px-4 py-2 bg-gray-900 text-white rounded-xl font-semibold text-sm shadow-sm hover:bg-red-600 transition-colors">HTML/CSS</span>
+                                <span class="px-4 py-2 bg-gray-900 text-white rounded-xl font-semibold text-sm shadow-sm hover:bg-red-600 transition-colors">Swift</span>
+                            </div>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                            <h4 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                <i data-lucide="shield" class="w-5 h-5 text-red-600"></i> Tools & Frameworks
+                            </h4>
+                            <div class="flex flex-wrap gap-2.5">
+                                <span class="px-3 py-1.5 bg-white text-gray-800 rounded-lg border border-gray-200 text-sm font-medium">Git / GitHub</span>
+                                <span class="px-3 py-1.5 bg-white text-gray-800 rounded-lg border border-gray-200 text-sm font-medium">React Native / Expo</span>
+                                <span class="px-3 py-1.5 bg-white text-gray-800 rounded-lg border border-gray-200 text-sm font-medium">Firebase</span>
+                                <span class="px-3 py-1.5 bg-white text-gray-800 rounded-lg border border-gray-200 text-sm font-medium">Jenkins / Unix</span>
+                                <span class="px-3 py-1.5 bg-white text-gray-800 rounded-lg border border-gray-200 text-sm font-medium">VS Code / Eclipse / Xcode</span>
+                                <span class="px-3 py-1.5 bg-white text-gray-800 rounded-lg border border-gray-200 text-sm font-medium">3D-Printing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const targetTab = btn.getAttribute('data-tab');
+
+                    // 1. Hide all contents, show target
+                    tabContents.forEach(content => {
+                        if (content.id === targetTab) {
+                            content.classList.remove('hidden');
+                            // Re-trigger animation
+                            content.classList.remove('animate-fade-in');
+                            void content.offsetWidth;
+                            content.classList.add('animate-fade-in');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+
+                    // 2. Reset all buttons to inactive state
+                    tabBtns.forEach(b => {
+                        // Remove active classes
+                        b.classList.remove('bg-gray-900', 'text-white', 'shadow-md', 'transform', 'scale-[1.02]');
+                        // Add inactive classes
+                        b.classList.add('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900', 'bg-white', 'border-transparent');
+                        
+                        // Handle SVG icon color styling
+                        const icon = b.querySelector('.lucide');
+                        if (icon) {
+                            icon.classList.remove('text-red-400');
+                            icon.classList.add('text-gray-400');
+                        }
+                    });
+
+                    // 3. Set clicked button to active state
+                    btn.classList.remove('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900', 'bg-white', 'border-transparent');
+                    btn.classList.add('bg-gray-900', 'text-white', 'shadow-md', 'transform', 'scale-[1.02]');
+                    
+                    const activeIcon = btn.querySelector('.lucide');
+                    if (activeIcon) {
+                        activeIcon.classList.remove('text-gray-400');
+                        activeIcon.classList.add('text-red-400');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
